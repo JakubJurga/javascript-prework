@@ -1,6 +1,13 @@
-
+{
+//Counter & Variables
     let counterPlayerWin = 0;
     let counterComputerWin = 0;
+
+    const playRock = document.getElementById('play-rock');
+    const playPaper = document.getElementById('play-paper');
+    const playScissors = document.getElementById('play-scissors');
+
+
 
 // Funkcja getMoveName
 
@@ -20,9 +27,10 @@ function playGame(playerInput){
         printMessage('Nie znam ruchu o id ' + argMoveId + '.');
         return 'nieznany ruch';
 
-	     }
+        }
 
 // Odczytanie ruchu komputera
+
       let randomNumber = Math.floor(Math.random() * 3 + 1);
 
       console.log('Wylosowana liczba to: ' + randomNumber);
@@ -31,10 +39,7 @@ function playGame(playerInput){
 
       printMessage('Mój ruch to: ' + computerMove);
 
-      //Odczytanie ruchu gracza
-
-      //let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
-
+//Odczytanie ruchu gracza
 
       console.log('Gracz wpisał: ' + playerInput);
 
@@ -42,7 +47,7 @@ function playGame(playerInput){
 
       printMessage('Twój ruch to: ' + playerMove);
 
-      // Wynik gry
+// Wynik gry
 
       let argComputerMove = computerMove
 
@@ -52,6 +57,7 @@ function playGame(playerInput){
 
       displayResult(argComputerMove, argPlayerMove)
 
+//Funkcja Display Result
 
     function displayResult(argComputerMove, argPlayerMove){
       printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
@@ -77,23 +83,17 @@ function playGame(playerInput){
     }
     }
 
+// Event listener
 
-    let playRock = document.getElementById('play-rock');
+      playRock.addEventListener('click', function(){
+      playGame(1);
+      });
 
-    playRock.addEventListener('click', function(){
-    playGame(1);
-    });
+      playPaper.addEventListener('click', function(){
+      playGame(2);
+      });
 
-
-    let playPaper = document.getElementById('play-paper');
-
-    playPaper.addEventListener('click', function(){
-    playGame(2);
-    });
-
-
-    let playScissors = document.getElementById('play-scissors');
-
-    playScissors.addEventListener('click', function() {
-    playGame(3);
-    });
+      playScissors.addEventListener('click', function() {
+      playGame(3);
+      });
+}
