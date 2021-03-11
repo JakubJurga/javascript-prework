@@ -9,14 +9,35 @@
 
 
 
-// Funkcja getMoveName
+// Funkcja playGame
 
 function playGame(playerInput){
 
-    clearMessages();
+      clearMessages();
+
+// Odczytanie ruchu komputera
+
+      let randomNumber = Math.floor(Math.random() * 3 + 1);
+
+      console.log('Wylosowana liczba to: ' + randomNumber);
+
+      let computerMove = getMoveName(Math.floor(Math.random() * 3 + 1));
+
+      printMessage('Mój ruch to: ' + computerMove);
+
+//Odczytanie ruchu gracza
+
+      console.log('Gracz wpisał: ' + playerInput);
+
+      let playerMove = getMoveName(playerInput)
+
+      printMessage('Twój ruch to: ' + playerMove);
+
+// Funkcja getMoveName
 
     function getMoveName(argMoveId){
-        if (argMoveId == 1){
+
+      if (argMoveId == 1){
           return 'kamień';
         } else if (argMoveId == 2){
 		        return 'papier';
@@ -28,24 +49,6 @@ function playGame(playerInput){
         return 'nieznany ruch';
 
         }
-
-// Odczytanie ruchu komputera
-
-      let randomNumber = Math.floor(Math.random() * 3 + 1);
-
-      console.log('Wylosowana liczba to: ' + randomNumber);
-
-      let computerMove = getMoveName(randomNumber);
-
-      printMessage('Mój ruch to: ' + computerMove);
-
-//Odczytanie ruchu gracza
-
-      console.log('Gracz wpisał: ' + playerInput);
-
-      let playerMove = getMoveName(playerInput)
-
-      printMessage('Twój ruch to: ' + playerMove);
 
 // Wynik gry
 
